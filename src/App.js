@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Products from "./pages/Products";
+import Cart from "./pages/Cart";
+import NotFound from "./pages/NotFound";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
+import {getCatalog} from "./redux/slices/catalogSlice";
+import {data} from "./data";
 
 function App() {
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getCatalog(data))
+    },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+            <Route path="products" element={<Products/>}/>
+            <Route path="cart" element={<Cart/>}/>
+            <Route path="*" element={<NotFound/>}/>
+        </Routes>
+      </BrowserRouter>
   );
 }
 
