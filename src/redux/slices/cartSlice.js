@@ -19,14 +19,13 @@ const cartSlice = createSlice({
                 }
             })
             if (!included) {
-                action.payload.amount = 1
                 state.cart = [...state.cart, action.payload]
             }
-            state.amountProduct = state.amountProduct + 1
+            state.totalAmount = state.totalAmount + 1
         },
         increase: (state, action) => {
             const item = state.cart.find(item => item.id === action.payload)
-            item.amount = state.amount + 1
+            item.amount = item.amount + 1
             state.totalAmount = state.totalAmount + 1
         },
         decrease: (state, action) => {
@@ -44,8 +43,8 @@ const cartSlice = createSlice({
             state.cart = state.cart.filter(item => item.id !== action.payload)
             state.totalAmount = state.totalAmount - item.amount
         },
-        calculateTotal: (state, action) => {
-            state.totalAmount= state.cart.reduce((acc, item) => acc + item.price * item.amount , 0)
+        calculateTotal: (state) => {
+            state.totalPrice= state.cart.reduce((acc, item) => acc + item.price * item.amount , 0)
         }
     }
 })

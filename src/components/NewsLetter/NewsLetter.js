@@ -3,17 +3,16 @@ import styled from "styled-components";
 import {color} from "../../variables/color";
 
 const Container = styled.div`
-  background-color: ${color.pink};
-  height: 50vh;
+  background-color: #f5ced5;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 20px;
 `;
 
 const Title = styled.h1`
-  font-size: 60px;
+  font-size: 50px;
   margin-bottom: 20px;
 `;
 
@@ -25,21 +24,31 @@ const Description = styled.p`
 
 const InputContainer = styled.div`
   display: flex;
-  width: 50%;
+  width: 40%;
   justify-content: center;
 `;
 
 const Input = styled.input`
-  border: none;
-  padding: 20px;
-  flex: 8;
+  border: 4px solid ${color.footerColor};
+  padding: 15px;
+  flex: 6;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 20px;
 `;
 
 const Button = styled.button`
-  flex: 2;
-  border: none;
-  background-color: ${color.sendPink};
+  flex: 3;
+  border: 4px solid ${color.footerColor};
+  background-color: ${color.footerColor};
   cursor: pointer;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
 `;
 
 

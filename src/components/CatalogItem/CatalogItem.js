@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../redux/slices/cartSlice";
 
 const Container = styled.div`
   padding: 0 15px;
@@ -30,10 +32,11 @@ const Info = styled.div`
 `;
 
 const Box = styled.div`
-  background-color: #e77ae1;
+  background-color: #f8d1da;
   height: 100%;
   padding: 15px;
   position: relative;
+
   :hover ${(Info)} {
     opacity: 1;
     visibility: visible;
@@ -60,12 +63,15 @@ const Icon = styled.div`
 `;
 
 const CatalogItem = ({product}) => {
+
+    const dispatch = useDispatch()
+
     return (
         <Container>
             <Box>
                 <Image src={product.img}/>
                 <Info>
-                    <Icon><i className='bx bx-cart-add'/></Icon>
+                    <Icon onClick={() => dispatch(addToCart(product))}><i className='bx bx-cart-add'/></Icon>
                     <Icon><i className='bx bx-search-alt'/></Icon>
                     <Icon><i className='bx bx-heart'/></Icon>
                 </Info>

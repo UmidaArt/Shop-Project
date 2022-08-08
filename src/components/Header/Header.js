@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
+import {useSelector} from "react-redux";
+import {Link, useNavigate} from "react-router-dom";
 
 
 const Container = styled.div`
@@ -41,7 +43,6 @@ const MenuItem = styled.button`
   cursor: pointer;
   background: none;
   font-weight: bold;
-
   :hover {
     color: #e83ae8;
   }
@@ -58,7 +59,7 @@ const Badge = styled.div`
   width: 15px;
   height: 16px;
   border-radius: 50%;
-  background-color: #ffc4fc;
+  background-color: pink;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,10 +68,14 @@ const Badge = styled.div`
 `;
 
 const Header = () => {
+
+    const {totalAmount} = useSelector(s => s.cart)
+    const navigate = useNavigate()
+
     return (
         <Container>
            <Left>
-               <Logo>Nevis</Logo>
+               <Logo><Link to='/'>Nevis</Link></Logo>
                <SearchContainer>
                    <Input placeholder="Search..."/>
                </SearchContainer>
@@ -78,9 +83,9 @@ const Header = () => {
             <Menu>
                 <MenuItem>Register</MenuItem>
                 <MenuItem>Sign in</MenuItem>
-                <MenuItem>
+                <MenuItem onClick={() => navigate('cart')}>
                     <CartIcon>
-                        <Badge>0</Badge>
+                        <Badge>{totalAmount}</Badge>
                         <i className='bx bx-cart bx-sm'/>
                     </CartIcon>
                 </MenuItem>

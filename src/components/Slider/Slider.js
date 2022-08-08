@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {slides} from "../../data";
 import styled from "styled-components";
 
@@ -52,12 +52,14 @@ const Description = styled.p`
 `;
 
 const Button = styled.button`
+  width: 100px;
   padding: 10px;
-  background: #e77ae1;
+  background: #6d1950;
   cursor: pointer;
   color: #fff;
   border-radius: 8px;
   border: none;
+  font-weight: bold;
 `;
 
 const Arrow = styled.div`
@@ -102,7 +104,7 @@ const Slider = () => {
         <div>
             <Container>
                 <Arrow onClick={() => handleClick('left')} direction='left'>
-                    <i className='bx bxs-chevrons-left'></i>
+                    <i className='bx bxs-chevrons-left'/>
                 </Arrow>
                 <Wrapper slideIndex={slideIndex}>
                     {
@@ -121,7 +123,7 @@ const Slider = () => {
                     }
                 </Wrapper>
                 <Arrow onClick={() => handleClick('right')} direction="right">
-                    <i className='bx bxs-chevrons-right'></i>
+                    <i className='bx bxs-chevrons-right'/>
                 </Arrow>
             </Container>
         </div>
