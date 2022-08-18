@@ -9,7 +9,7 @@ const Container = styled.div`
   border: 1px solid silver;
   margin-bottom: 20px;
   padding: 30px;
-  background-color: #fcf1f8;
+  background-color: #f5f4f4;
 `;
 
 const Image = styled.img`
@@ -51,7 +51,7 @@ const ProductAmountContainer = styled.div`
 const Counter = styled.div`
   cursor: pointer;
   border-radius: 50%;
-  background-color: pink;
+  background-color: #cbc7c4;
   width: 30px;
   height: 30px;
   display: flex;

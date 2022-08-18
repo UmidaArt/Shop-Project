@@ -2,22 +2,32 @@ import React from 'react';
 import styled from "styled-components";
 import {useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
+import img from '../../assets/images/242-2426078_book-tree-ver-grammaire-clipart.png'
 
 
 const Container = styled.div`
-  padding: 10px 30px;
+  padding: 0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #faf9f8;
 `;
 
 const Left = styled.div`
   display: flex;
-  align-items: center;
 `;
 
-const Logo = styled.h1`
+const Logo = styled.img`
+  width: 70px;
+`;
+
+const LogoTitle = styled.h1`
+  font-size: 30px;
   font-weight: bold;
+  text-decoration: none;
+  color: #1c1101;
+  padding-top: 14px;
+  font-family: 'Lora', serif;
 `;
 
 const SearchContainer = styled.div`
@@ -26,6 +36,7 @@ const SearchContainer = styled.div`
 
 const Input = styled.input`
   border: antiquewhite;
+  width: 300px;
   padding: 10px;
   box-shadow: 0 1px 3px 0 #bbbbbb;
   border-radius: 4px;
@@ -43,8 +54,9 @@ const MenuItem = styled.button`
   cursor: pointer;
   background: none;
   font-weight: bold;
+
   :hover {
-    color: #e83ae8;
+    color: #5e2003;
   }
 `;
 
@@ -59,12 +71,13 @@ const Badge = styled.div`
   width: 15px;
   height: 16px;
   border-radius: 50%;
-  background-color: pink;
+  background-color: #444343;
   display: flex;
   justify-content: center;
   align-items: center;
   top: 6px;
   right: -5px;
+  color: white;
 `;
 
 const Header = () => {
@@ -74,21 +87,24 @@ const Header = () => {
 
     return (
         <Container>
-           <Left>
-               <Logo><Link to='/'>Nevis</Link></Logo>
-               <SearchContainer>
-                   <Input placeholder="Search..."/>
-               </SearchContainer>
-           </Left>
+            <Link to='/'>
+                <Left>
+                    <Logo src={img}/>
+                    <LogoTitle>Word Forest</LogoTitle>
+                </Left>
+            </Link>
             <Menu>
-                <MenuItem>Register</MenuItem>
-                <MenuItem>Sign in</MenuItem>
+                <MenuItem onClick={() => navigate('/register')}>Register</MenuItem>
+                <MenuItem onClick={() => navigate('/login')}>Sign in</MenuItem>
                 <MenuItem onClick={() => navigate('cart')}>
                     <CartIcon>
                         <Badge>{totalAmount}</Badge>
                         <i className='bx bx-cart bx-sm'/>
                     </CartIcon>
                 </MenuItem>
+                <SearchContainer>
+                    <Input placeholder="Search..."/>
+                </SearchContainer>
             </Menu>
         </Container>
     );

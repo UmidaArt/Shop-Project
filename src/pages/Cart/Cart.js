@@ -25,6 +25,11 @@ const Title = styled.div`
 
 const TopButton = styled.button`
   ${ButtonTemplate};
+  font-weight: bold;
+  background-color: #443e3b;
+  :hover {
+    background-color: #282c34;
+  }
 `;
 
 const Bottom = styled.div`
@@ -47,7 +52,7 @@ const Summery = styled.div`
   padding: 20px;
   margin-left: 30px;
   height: 262px;
-  background-color: #fcf1f8;
+  background-color: #f5f4f4;
 `;
 
 const SummeryTitle = styled.h2`

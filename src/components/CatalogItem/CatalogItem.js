@@ -32,11 +32,9 @@ const Info = styled.div`
 `;
 
 const Box = styled.div`
-  background-color: #f8d1da;
+  padding: 15px ;
   height: 100%;
-  padding: 15px;
   position: relative;
-
   :hover ${(Info)} {
     opacity: 1;
     visibility: visible;
@@ -57,8 +55,9 @@ const Icon = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(255, 105, 180, 0.73);
+    background-color: rgba(232, 231, 226, 0.73);
     transform: scale(1.1);
+    color: #8e406b;
   }
 `;
 

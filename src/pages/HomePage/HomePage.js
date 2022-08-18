@@ -13,6 +13,7 @@ const HomePage = () => {
             <Announcement/>
             <Header/>
             <Slider/>
+            {/*<Genres/>*/}
             <Catalog/>
             <NewsLetter/>
             <Footer/>

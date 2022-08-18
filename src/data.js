@@ -1,7 +1,7 @@
 export const data = [
     {
         id: 1,
-        img: 'https://www.pngall.com/wp-content/uploads/7/Blouse-PNG-HD-Image.png',
+        img: 'https://beetifulwebs.com/wp-content/uploads/2015/11/TracyMarchini-Fold.jpg',
         desc: 'Design quick-dry women’s clothes that are ready to keep up with active lifestyles and team activities. ',
         title: 'productName 1',
         price: 25,
@@ -9,7 +9,7 @@ export const data = [
     },
     {
         id: 2,
-        img: 'https://www.pngall.com/wp-content/uploads/7/Blouse.png',
+        img: 'https://covers.openlibrary.org/b/id/12539702-M.jpg',
         desc: 'Design quick-dry women’s clothes that are ready to keep up with active lifestyles and team activities. ',
         title: 'productName 2',
         price: 30,
@@ -17,8 +17,7 @@ export const data = [
     },
     {
         id: 3,
-        img:
-            'https://www.pngall.com/wp-content/uploads/12/Jumper-Sweater-PNG-Image-HD.png',
+        img: 'https://covers.openlibrary.org/b/id/8747160-M.jpg',
         desc: 'Design quick-dry women’s clothes that are ready to keep up with active lifestyles and team activities. ',
         title: 'productName 3',
         price: 27,
@@ -26,8 +25,7 @@ export const data = [
     },
     {
         id: 4,
-        img:
-            'https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png',
+        img: 'https://covers.openlibrary.org/b/id/8235400-M.jpg',
         desc: 'Design quick-dry women’s clothes that are ready to keep up with active lifestyles and team activities. ',
         title: 'productName 4',
         price: 24,
@@ -35,8 +33,7 @@ export const data = [
     },
     {
         id: 5,
-        img:
-            'https://www.pngall.com/wp-content/uploads/12/Jumper-Sweater-PNG-Clipart.png',
+        img: 'https://covers.openlibrary.org/w/id/636096-M.jpg',
         desc: 'Design quick-dry women’s clothes that are ready to keep up with active lifestyles and team activities. ',
         title: 'productName 5',
         price: 26,
@@ -44,7 +41,7 @@ export const data = [
     },
     {
         id: 6,
-        img: 'https://www.pngall.com/wp-content/uploads/2016/07/Dress-PNG-HD.png',
+        img: 'https://covers.openlibrary.org/w/id/12018685-M.jpg',
         desc: 'Design quick-dry women’s clothes that are ready to keep up with active lifestyles and team activities. ',
         title: 'productName 6',
         price: 20,
@@ -52,7 +49,7 @@ export const data = [
     },
     {
         id: 7,
-        img: 'https://www.pngall.com/wp-content/uploads/12/Jumper-Sweater-PNG.png',
+        img: 'https://covers.openlibrary.org/w/id/10741161-M.jpg',
         desc: 'Design quick-dry women’s clothes that are ready to keep up with active lifestyles and team activities. ',
         title: 'productName 7',
         price: 21,
@@ -60,8 +57,7 @@ export const data = [
     },
     {
         id: 8,
-        img:
-            'https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png',
+        img: 'https://covers.openlibrary.org/w/id/11959445-M.jpg',
         desc: 'Design quick-dry women’s clothes that are ready to keep up with active lifestyles and team activities. ',
         title: 'productName 8',
         price: 22,
@@ -72,23 +68,26 @@ export const data = [
 export const slides = [
     {
         id: 1,
-        img: 'https://i.ibb.co/cXFnLLV/3.png',
-        title: 'Открой для себя лето!',
-        desc: 'Не отказывай себе в своих желаниях.',
-        bgColor: '#f1b3ca'
+        img: 'https://wallpapercave.com/dwp2x/wp2680079.jpg',
+        title: 'The beauty of the world in books',
+        desc: 'Plunge into this world',
     },
     {
         id: 2,
-        img: 'https://i.ibb.co/DG69bQ4/2.png',
-        title: 'Летняя коллекция уже в продаже.',
-        desc: 'Почувствуй легкость грядущего дня.',
-        bgColor: 'rgba(245,157,240,0.85)'
+        img: 'https://wallpaperaccess.com/full/1303159.jpg',
+        title: 'The beauty of the world in books',
+        desc: 'Plunge into this world',
     },
     {
         id: 3,
-        img: 'https://i.ibb.co/DG69bQ4/2.png',
-        title: 'Летняя коллекция уже в продаже1.',
-        desc: 'Почувствуй легкость грядущего дня1.',
-        bgColor: '#f37faa'
+        img: 'https://images4.alphacoders.com/221/thumb-1920-221114.jpg',
+        title: 'The beauty of the world in books',
+        desc: 'Plunge into this world',
+    },
+    {
+        id: 4,
+        img: 'https://images.alphacoders.com/867/thumb-1920-867424.jpg',
+        title: 'The beauty of the world in books',
+        desc: 'Plunge into this world',
     },
 ]

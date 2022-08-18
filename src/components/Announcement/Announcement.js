@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components'
 
 const Container = styled.div`
-  background-color: #792a5e;
+  background-color: #2b2a2b;
   padding: 10px 0;
   color: #fff;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 `;
 

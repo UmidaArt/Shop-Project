@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
+import 'boxicons'
 
 const Container = styled.div`
-  background-color: #792a5e;
+  background-color: #2a2b2b;
   color: #fff;
   display: flex;
 `;
@@ -32,9 +33,11 @@ const SocialIcon = styled.div`
   align-items: center;
   margin-right: 20px;
   cursor: pointer;
+  background-color: #e4e8e8;
+
   :hover {
-    color: hotpink;
-    border: 2px solid hotpink;
+    background-color: #5a5552;
+    border: 2px solid #d7c8c5;
   }
 `;
 
@@ -56,8 +59,9 @@ const List = styled.ul`
 const ListItem = styled.li`
   margin-bottom: 10px;
   cursor: pointer;
+
   :hover {
-    color: hotpink;
+    color: #056ab8;
   }
 `;
 
@@ -81,10 +85,12 @@ const Footer = () => {
                     (this is a live example, click on them!)
                 </Description>
                 <SocialContainer>
-                    <SocialIcon>Fb</SocialIcon>
-                    <SocialIcon>Insta</SocialIcon>
-                    <SocialIcon>Tw</SocialIcon>
-                    <SocialIcon>ICQ</SocialIcon>
+                    <SocialIcon><box-icon name='facebook' type='logo' color='#1950EEFF'/></SocialIcon>
+                    <SocialIcon><box-icon name='instagram' type='logo' color='#C94322FF'/></SocialIcon>
+                    <SocialIcon><box-icon name='twitter' type='logo' color='#0576ACFF'/></SocialIcon>
+                    <SocialIcon><box-icon name='pinterest-alt' type='logo' color='#D5062FFF'/></SocialIcon>
+                    <SocialIcon><box-icon name='rss' color='#F3540BFF'/></SocialIcon>
+                    <SocialIcon><box-icon name='tumblr' type='logo' color='#056AB8FF'/></SocialIcon>
                 </SocialContainer>
             </Left>
             <Center>

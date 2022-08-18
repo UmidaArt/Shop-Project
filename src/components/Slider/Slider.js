@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {slides} from "../../data";
 import styled from "styled-components";
 
@@ -9,57 +9,64 @@ const Container = styled.div`
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
+  color: white;
 `;
 
 const Wrapper =  styled.div`
   height: 100%;
   display: flex;
-  transition: 0.04s;
+  transition: 0.8s;
   transform: translateX(${(props) => props.slideIndex * -100}vw);
+  background-color: rgba(0,0,0,0.5);
 `;
 
 const Slide = styled.div`
   width: 100vw;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  background-color: ${(props) => props.bg};
+  position: relative;
 `;
 
 const ImgContainer = styled.div`
-  flex: 1;
   height: 100%;
 `;
 
 const Image = styled.img`
-  width: 50vw;
+  width: 100vw;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 `;
 
 const  InfoContainer = styled.div`
-  flex: 1;
+  position: absolute;
+  top: 25%;
+  left: 30%;
   padding: 50px;
 `;
 
 const Title = styled.h1`
+  font-family: 'Lora', serif;
   font-size: 60px;
 `;
 
 const Description = styled.p`
-  font-size: 24px;
-  margin: 40px 0;
+  font-family: 'Lora', serif;
+  font-size: 40px;
+  margin: 20px 0;
 `;
 
 const Button = styled.button`
-  width: 100px;
-  padding: 10px;
-  background: #6d1950;
   cursor: pointer;
   color: #fff;
-  border-radius: 8px;
-  border: none;
+  font-size: 24px;
   font-weight: bold;
+  background: transparent;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border-color: #9ca3ad;
+
+  :hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
 `;
 
 const Arrow = styled.div`
@@ -74,8 +81,10 @@ const Arrow = styled.div`
   right: ${(props) => props.direction === 'right' ? '30px' : 'unset'};
   cursor: pointer;
   transition: 1s;
+  color: #e8ded1;
+
   :hover {
-    color: darkmagenta;
+    color: #faf6f1;
   }
 `;
 
