@@ -1,13 +1,11 @@
 import React, {useEffect} from 'react';
-import Announcement from "../../components/Announcement";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import {useDispatch, useSelector} from "react-redux";
 import CartItem from "../../components/CartItem";
 import styled from "styled-components";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {ButtonTemplate} from "../../mixines";
 import {calculateTotal} from "../../redux/slices/cartSlice";
+import Layout from "../../components/Layout/Layout";
 
 const Container = styled.div`
     
@@ -26,9 +24,10 @@ const Title = styled.div`
 const TopButton = styled.button`
   ${ButtonTemplate};
   font-weight: bold;
-  background-color: #443e3b;
+  border: none;
+  background-color: grey;
   :hover {
-    background-color: #282c34;
+    background-color: #525255;
   }
 `;
 
@@ -77,6 +76,13 @@ const SummeryItemPrice = styled.div`
 const Button = styled.button`
   ${ButtonTemplate};
   margin-top: 10px;
+  border: none;
+  font-weight: bold;
+  background-color: grey;
+
+  :hover {
+    background-color: #525255;
+  }
 `;
 
 const Cart = () => {
@@ -84,15 +90,14 @@ const Cart = () => {
     const {cart, totalPrice, totalAmount} = useSelector(s => s.cart)
     const navigation = useNavigate()
     const dispatch = useDispatch()
+    const location = useLocation()
 
     useEffect(() => {
         dispatch(calculateTotal())
     }, [dispatch, totalAmount])
 
     return (
-        <div>
-            <Announcement/>
-            <Header/>
+        <Layout>
             <Container>
                 <Wrapper>
                     <Top>
@@ -130,8 +135,7 @@ const Cart = () => {
                     </Bottom>
                 </Wrapper>
             </Container>
-            <Footer/>
-        </div>
+        </Layout>
     );
 };
 

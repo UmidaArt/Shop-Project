@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from "styled-components";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import {ButtonTemplate} from "../../mixines";
-import img from "../../assets/images/207385-The_Elder_Scrolls_V_Skyrim-dragon-video_games.jpeg"
+import img from "../../assets/images/360_F_91356380_Ldrwb4ogss5TCU602w0r6sANvCFZhIyt.jpeg"
+import {useDispatch, useSelector} from "react-redux";
+import {signInUser} from "../../redux/slices/userSlice";
+import toast from "react-hot-toast";
+import {useNavigate} from "react-router-dom";
+import Layout from "../../components/Layout/Layout";
 
 const Container = styled.div`
   display: flex;
@@ -36,7 +39,7 @@ const Title = styled.h2`
   font-size: 24px;
   font-weight: normal;
   margin-bottom: 20px;
-  color: #282c34;
+  color: #bebebf;
 `;
 const Form = styled.form`
 `;
@@ -73,8 +76,10 @@ const Button = styled.button`
   }
 `;
 
-
 const Login = () => {
+    const dispatch = useDispatch()
+    const {isSuccess, isError, errorMessage} = useSelector(s => s.user)
+    const navigation = useNavigate()
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -85,13 +90,22 @@ const Login = () => {
             password: Yup.string().min(6, 'Your password is too short.').required('Password is required'),
         }),
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+           delete values.passwordConfirmation
+           dispatch(signInUser(values))
         },
     })
 
+    useEffect(() => {
+        if (isError) {
+            toast.error(errorMessage);
+        }
+        if (isSuccess) {
+           navigation('/')
+        }
+    }, [isSuccess, isError]);
+
     return (
-        <>
-            <Header/>
+        <Layout>
             <Container>
                 <ImgContainer>
                     <Image src={img}/>
@@ -105,7 +119,7 @@ const Login = () => {
                                 ) : null}
                             </InputGroup>
                             <InputGroup>
-                                <Input placeholder='Password' id='password' type='text' {...formik.getFieldProps('password')}/>
+                                <Input placeholder='Password' id='password' type='password' {...formik.getFieldProps('password')}/>
                                 {formik.touched.password && formik.errors.password ? (
                                     <div>{formik.errors.password}</div>
                                 ) : null}
@@ -115,8 +129,7 @@ const Login = () => {
                     </Wrapper>
                 </ImgContainer>
             </Container>
-            <Footer/>
-        </>
+        </Layout>
     );
 };
 

@@ -4,7 +4,7 @@ import {color} from "../../variables/color";
 
 const Container = styled.div`
   background-color: #f8f6f4;
-  height: 60vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +43,6 @@ const Input = styled.input`
 const Button = styled.button`
   flex: 2;
   border: 2px solid #342d28;
-  background-color: ${color.footerColor};
   cursor: pointer;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;

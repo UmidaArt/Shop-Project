@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {slides} from "../../data";
 import styled from "styled-components";
 
@@ -39,7 +39,7 @@ const Image = styled.img`
 const  InfoContainer = styled.div`
   position: absolute;
   top: 25%;
-  left: 30%;
+  right: 2%;
   padding: 50px;
 `;
 
@@ -57,12 +57,12 @@ const Description = styled.p`
 const Button = styled.button`
   cursor: pointer;
   color: #fff;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: normal;
   background: transparent;
   padding: 10px 20px;
   border-radius: 8px;
-  border-color: #9ca3ad;
+  border: 2px solid #9ca3ad;
 
   :hover {
     background: rgba(0, 0, 0, 0.4);
@@ -81,7 +81,7 @@ const Arrow = styled.div`
   right: ${(props) => props.direction === 'right' ? '30px' : 'unset'};
   cursor: pointer;
   transition: 1s;
-  color: #e8ded1;
+  color: #fff;
 
   :hover {
     color: #faf6f1;
@@ -110,7 +110,7 @@ const Slider = () => {
     // }, [])
 
     return (
-        <div>
+        <>
             <Container>
                 <Arrow onClick={() => handleClick('left')} direction='left'>
                     <i className='bx bxs-chevrons-left'/>
@@ -135,7 +135,7 @@ const Slider = () => {
                     <i className='bx bxs-chevrons-right'/>
                 </Arrow>
             </Container>
-        </div>
+        </>
     );
 };
 

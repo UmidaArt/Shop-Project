@@ -1,7 +1,7 @@
 export const data = [
     {
         id: 1,
-        img: 'https://beetifulwebs.com/wp-content/uploads/2015/11/TracyMarchini-Fold.jpg',
+        img: 'https://covers.openlibrary.org/b/id/10473609-M.jpg',
         desc: 'Design quick-dry women’s clothes that are ready to keep up with active lifestyles and team activities. ',
         title: 'productName 1',
         price: 25,

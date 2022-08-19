@@ -1,0 +1,6 @@
+//{
+//  "extends": ["@imaginary-cloud/react"],
+//  "rules": {
+//    "no-param-reassign": "off"
+//  }
+//}

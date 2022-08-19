@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import img from '../../assets/images/242-2426078_book-tree-ver-grammaire-clipart.png'
+import {logout} from "../../redux/slices/userSlice";
 
 
 const Container = styled.div`
@@ -28,6 +29,10 @@ const LogoTitle = styled.h1`
   color: #1c1101;
   padding-top: 14px;
   font-family: 'Lora', serif;
+
+  :hover {
+    color: #6c544a;
+  }
 `;
 
 const SearchContainer = styled.div`
@@ -56,7 +61,7 @@ const MenuItem = styled.button`
   font-weight: bold;
 
   :hover {
-    color: #5e2003;
+    color: #744c36;
   }
 `;
 
@@ -83,6 +88,8 @@ const Badge = styled.div`
 const Header = () => {
 
     const {totalAmount} = useSelector(s => s.cart)
+    const {isSuccess, user} = useSelector(s => s.user)
+    const dispatch = useDispatch()
     const navigate = useNavigate()
 
     return (
@@ -94,9 +101,21 @@ const Header = () => {
                 </Left>
             </Link>
             <Menu>
-                <MenuItem onClick={() => navigate('/register')}>Register</MenuItem>
-                <MenuItem onClick={() => navigate('/login')}>Sign in</MenuItem>
-                <MenuItem onClick={() => navigate('cart')}>
+                {
+                    isSuccess ?
+                        <>
+                            <MenuItem>Welcome {user.email} ! </MenuItem>
+                            <MenuItem onClick={() => navigate('/profile')}>Profile</MenuItem>
+                            <MenuItem onClick={() => dispatch(logout())}>Logout</MenuItem>
+                        </>
+                        :
+                        (<>
+                            <MenuItem onClick={() => navigate('/profile')}>Profile</MenuItem>
+                            <MenuItem onClick={() => navigate('/register')}>Register</MenuItem>
+                            <MenuItem onClick={() => navigate('/login')}>Sign in</MenuItem>
+                        </>)
+                }
+                <MenuItem onClick={() => navigate('/cart')}>
                     <CartIcon>
                         <Badge>{totalAmount}</Badge>
                         <i className='bx bx-cart bx-sm'/>

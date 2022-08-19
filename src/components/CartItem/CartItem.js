@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {useDispatch} from "react-redux";
 import {decrease, increase} from "../../redux/slices/cartSlice";
+import {ButtonTemplate} from "../../mixines";
 
 const Container = styled.div`
   display: flex;
@@ -59,6 +60,19 @@ const Counter = styled.div`
   align-items: center;
 `;
 
+const Button = styled.button`
+  ${ButtonTemplate};
+  margin-top: 10px;
+  border: none;
+  font-weight: bold;
+  width: 100px;
+  background-color: grey;
+
+  :hover {
+    background-color: #525255;
+  }
+`;
+
 const ProductAmount = styled.div`
   font-size: 24px;
   margin: 5px;
@@ -82,6 +96,7 @@ const CartItem = ({item}) => {
                 <ProductName><b>Product:</b> {item.title}</ProductName>
                 <ProductDesc>{item.desc}</ProductDesc>
                 <ProductId><b>Id:</b> {item.id}</ProductId>
+                <Button>Read</Button>
             </Details>
             <PriceDetail>
                 <ProductAmountContainer>

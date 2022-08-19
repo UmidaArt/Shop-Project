@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from "styled-components";
+import toast, { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import {ButtonTemplate} from "../../mixines";
-import {useDispatch} from "react-redux";
-import img from '../../assets/images/thumb-1920-309983.jpeg'
+import {useDispatch, useSelector} from "react-redux";
+import img from '../../assets/images/old-books-in-a-pile-paqzbm1wimbshanh.jpeg'
+import {signupUser} from "../../redux/slices/userSlice";
+import { useEffect } from "react";
+import {useNavigate} from "react-router-dom";
+import Layout from "../../components/Layout/Layout";
 
 const Container = styled.div`
   display: flex;
@@ -29,15 +32,15 @@ const Wrapper = styled.div`
   width: 40%;
   padding: 30px;
   position: absolute;
-  right: 13%;
-  top: 10%;
+  right: 9%;
+  top: 5%;
 `;
 
 const Title = styled.h2`
   font-size: 24px;
   font-weight: normal;
   margin-bottom: 20px;
-  color: #282c34;
+  color: #bebebf;
 `;
 
 const Form = styled.form`
@@ -58,6 +61,7 @@ const Input = styled.input`
   margin-bottom: 10px;
   background-color: transparent;
   border: 2px solid #d8e0e0;
+  color: #e4e8ee;
 `;
 
 const Button = styled.button`
@@ -78,7 +82,8 @@ const Button = styled.button`
 
 const Register = () => {
     const dispatch = useDispatch()
-
+    const {isSuccess, isError, errorMessage} = useSelector(s => s.user)
+    const navigation = useNavigate()
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -93,13 +98,21 @@ const Register = () => {
         }),
         onSubmit: values => {
             delete values.passwordConfirmation
-            alert(JSON.stringify(values, null, 2));
+            dispatch(signupUser(values))
         },
     })
 
+    useEffect(() => {
+        if (isSuccess) {
+            navigation('/')
+        }
+        if (isError) {
+            toast.error(errorMessage)
+        }
+    }, [isSuccess, isError, dispatch, errorMessage, navigation])
+
     return (
-        <>
-            <Header/>
+        <Layout>
             <Container>
                 <ImgContainer>
                     <Image src={img}/>
@@ -113,13 +126,13 @@ const Register = () => {
                                 ) : null}
                             </InputGroup>
                             <InputGroup>
-                                <Input placeholder='Password' id='password' type='text' {...formik.getFieldProps('password')}/>
+                                <Input placeholder='Password' id='password' type='password' {...formik.getFieldProps('password')}/>
                                 {formik.touched.password && formik.errors.password ? (
                                     <div>{formik.errors.password}</div>
                                 ) : null}
                             </InputGroup>
                             <InputGroup>
-                                <Input placeholder='Confirm password' id='passwordConfirmation' type='text' {...formik.getFieldProps('passwordConfirmation')}/>
+                                <Input placeholder='Confirm password' id='passwordConfirmation' type='password' {...formik.getFieldProps('passwordConfirmation')}/>
                                 {formik.touched.passwordConfirmation && formik.errors.passwordConfirmation ? (
                                     <div>{formik.errors.passwordConfirmation}</div>
                                 ) : null}
@@ -129,8 +142,8 @@ const Register = () => {
                     </Wrapper>
                 </ImgContainer>
             </Container>
-            <Footer/>
-        </>
+            <Toaster />
+        </Layout>
     );
 };
 

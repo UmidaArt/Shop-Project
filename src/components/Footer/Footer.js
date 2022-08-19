@@ -33,11 +33,11 @@ const SocialIcon = styled.div`
   align-items: center;
   margin-right: 20px;
   cursor: pointer;
-  background-color: #e4e8e8;
+  background-color: #f4fafa;
 
   :hover {
-    background-color: #5a5552;
-    border: 2px solid #d7c8c5;
+    background-color: #494b4b;
+    border: 2px solid #d9d4cc;
   }
 `;
 
@@ -61,7 +61,7 @@ const ListItem = styled.li`
   cursor: pointer;
 
   :hover {
-    color: #056ab8;
+    color: #898887;
   }
 `;
 
